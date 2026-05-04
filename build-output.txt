@@ -1,0 +1,158 @@
+Debugger listening on ws://127.0.0.1:50338/a843c8f3-6d41-46ee-afbd-e0f89d6ddc15
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+
+> agri-finance-admin@0.0.0 build
+> vue-tsc -b && vite build
+
+Debugger listening on ws://127.0.0.1:53320/78d03b68-5efb-4279-82d3-8f24d4f3f6a4
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+src/components/StatusChip.vue(8,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/composables/useTranslation.ts(1,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/composables/useTranslation.ts(17,12): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ en: { common: { login: string; logout: string; password: string; email: string; name: string; save: string; cancel: string; delete: string; edit: string; create: string; search: string; back: string; submit: string; ... 52 more ...; perAnnum: string; }; ... 11 more ...; myLoans: { ...; }; }; es: { ...; }; fr: { .....'.
+src/stores/app.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/auth.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/auth.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/banks.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/banks.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/banks.ts(13,24): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/stores/banks.ts(35,29): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/stores/banks.ts(47,39): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/stores/cooperatives.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/cooperatives.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/cooperatives.ts(15,38): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/stores/cooperatives.ts(34,36): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/stores/cooperatives.ts(46,46): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/stores/dashboard.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/farms.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/farms.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/farms.ts(15,31): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/stores/farms.ts(21,33): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/stores/farms.ts(44,29): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/stores/farms.ts(56,39): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/stores/loanApplications.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/loanApplications.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/loanApplications.ts(18,30): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanApplications.ts(24,30): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanApplications.ts(27,30): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanApplications.ts(36,32): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanApplications.ts(54,36): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanApplications.ts(70,41): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/stores/loanPrograms.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/loanPrograms.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/loanPrograms.ts(18,30): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/stores/loanPrograms.ts(21,30): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/stores/loanPrograms.ts(24,30): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/stores/loanPrograms.ts(33,28): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/stores/loanPrograms.ts(51,32): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/stores/users.ts(2,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/stores/users.ts(2,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/stores/users.ts(15,31): error TS7006: Parameter 'u' implicitly has an 'any' type.
+src/stores/users.ts(36,29): error TS7006: Parameter 'u' implicitly has an 'any' type.
+src/stores/users.ts(48,39): error TS7006: Parameter 'u' implicitly has an 'any' type.
+src/views/finance/ApplicationSubmissionFormView.vue(25,46): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/ApplicationSubmissionFormView.vue(34,46): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/ApplicationSubmissionFormView.vue(45,46): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/ApplicationSubmissionFormView.vue(69,42): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/ApplicationSubmissionFormView.vue(107,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/ApplicationSubmissionFormView.vue(107,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/AvailableLoanDetailView.vue(34,41): error TS2365: Operator '+' cannot be applied to types 'string | number' and 'number'.
+src/views/finance/AvailableLoanDetailView.vue(72,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/AvailableLoanDetailView.vue(72,20): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/AvailableLoansView.vue(44,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/AvailableLoansView.vue(44,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/AvailableLoansView.vue(44,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/AvailableLoansView.vue(57,69): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/views/finance/BankCreateView.vue(165,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/BankCreateView.vue(165,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/BankDetailView.vue(141,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/BankDetailView.vue(141,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/BankDetailView.vue(141,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/BankEditView.vue(82,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/BankEditView.vue(82,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/BankEditView.vue(82,25): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/BankEditView.vue(82,35): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/BankEditView.vue(82,46): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/BanksView.vue(59,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/BanksView.vue(59,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/BanksView.vue(59,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/CooperativeCreateView.vue(9,84): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/CooperativeCreateView.vue(17,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/CooperativeCreateView.vue(17,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/CooperativeEditView.vue(9,79): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/CooperativeEditView.vue(17,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/CooperativeEditView.vue(17,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/CooperativeEditView.vue(17,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/CooperativeEditView.vue(17,36): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/CooperativeEditView.vue(33,13): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/views/finance/CooperativesView.vue(19,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/CooperativesView.vue(19,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/CooperativesView.vue(19,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/FinanceDashboardView.vue(177,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/FinanceDashboardView.vue(177,20): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/FinanceDashboardView.vue(177,31): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/FinanceDashboardView.vue(178,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/FinanceDashboardView.vue(195,17): error TS7006: Parameter 'val' implicitly has an 'any' type.
+src/views/finance/LoanApplicationDetailView.vue(236,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/LoanApplicationDetailView.vue(236,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/LoanApplicationDetailView.vue(236,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanApplicationsView.vue(94,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/LoanApplicationsView.vue(94,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanApplicationsView.vue(94,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/LoanProgramCreateView.vue(88,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/LoanProgramCreateView.vue(88,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/LoanProgramCreateView.vue(88,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanProgramCreateView.vue(121,44): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/views/finance/LoanProgramDetailView.vue(44,41): error TS2365: Operator '+' cannot be applied to types 'string | number' and 'number'.
+src/views/finance/LoanProgramDetailView.vue(134,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/LoanProgramDetailView.vue(134,20): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanProgramEditView.vue(67,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/LoanProgramEditView.vue(67,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/LoanProgramEditView.vue(67,25): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/LoanProgramEditView.vue(67,35): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanProgramEditView.vue(67,46): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/LoanProgramEditView.vue(115,40): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/views/finance/LoanProgramsView.vue(84,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/LoanProgramsView.vue(84,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/LoanProgramsView.vue(84,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/MyFarmCreateView.vue(9,77): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/MyFarmCreateView.vue(21,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/MyFarmCreateView.vue(21,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/MyFarmEditView.vue(9,77): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/MyFarmEditView.vue(21,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/MyFarmEditView.vue(21,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/MyFarmEditView.vue(21,25): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/MyFarmEditView.vue(21,35): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/MyFarmEditView.vue(21,46): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/MyFarmEditView.vue(37,13): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/views/finance/MyFarmsView.vue(18,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/MyFarmsView.vue(18,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/MyFarmsView.vue(18,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/MyLoanDetailView.vue(118,10): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/MyLoanDetailView.vue(118,20): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/MyLoansView.vue(56,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/MyLoansView.vue(56,15): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/MyLoansView.vue(56,25): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/MyLoansView.vue(73,37): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/views/finance/UserCreateView.vue(9,78): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/UserCreateView.vue(10,80): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/UserCreateView.vue(10,104): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/UserCreateView.vue(19,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/UserCreateView.vue(19,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/UserEditView.vue(9,78): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/UserEditView.vue(10,80): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/views/finance/UserEditView.vue(19,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/UserEditView.vue(19,15): error TS2305: Module '"vue"' has no exported member 'reactive'.
+src/views/finance/UserEditView.vue(19,25): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/finance/UserEditView.vue(19,35): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/UserEditView.vue(19,46): error TS2305: Module '"vue"' has no exported member 'watch'.
+src/views/finance/UserEditView.vue(36,13): error TS7006: Parameter 'u' implicitly has an 'any' type.
+src/views/finance/UsersView.vue(19,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/finance/UsersView.vue(19,15): error TS2305: Module '"vue"' has no exported member 'onMounted'.
+src/views/finance/UsersView.vue(19,26): error TS2305: Module '"vue"' has no exported member 'computed'.
+src/views/LoginView.vue(112,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/ProfileView.vue(60,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+src/views/SettingsView.vue(20,10): error TS2305: Module '"vue"' has no exported member 'ref'.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
