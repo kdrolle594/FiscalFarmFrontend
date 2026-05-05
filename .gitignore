@@ -12,9 +12,7 @@ dist
 dist-ssr
 *.local
 .env
-.env.local
-.vercel
-ca.pem
+
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +24,12 @@ ca.pem
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+.env*.local
+
+.vercel
+.env*.local
+ca.pem
+.claude/
+.mcp.json

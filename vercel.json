@@ -1,8 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "api/**/*.ts": {
-      "includeFiles": "ca.pem"
-    }
-  }
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "devCommand": "vite --port $PORT",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/banks/:id", "destination": "/api/banks?id=:id" },
+    { "source": "/api/cooperatives/:id", "destination": "/api/cooperatives?id=:id" },
+    { "source": "/api/farms/:id", "destination": "/api/farms?id=:id" },
+    { "source": "/api/users/:id", "destination": "/api/users?id=:id" },
+    { "source": "/api/loan-programs/:id", "destination": "/api/loan-programs?id=:id" },
+    { "source": "/api/loan-applications/:id", "destination": "/api/loan-applications?id=:id" }
+  ]
 }

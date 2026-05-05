@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { query } from '../_lib/db'
-import { comparePassword, signToken } from '../_lib/auth'
-import { methods } from '../_lib/handler'
+import { query } from '../_lib/db.js'
+import { comparePassword, signToken } from '../_lib/auth.js'
+import { methods } from '../_lib/handler.js'
 
 interface AuthRow {
   id: string

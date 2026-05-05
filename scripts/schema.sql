@@ -1,23 +1,18 @@
--- AgriFinance MySQL schema
--- Targets MySQL 8 (Aiven). Run once before seed.ts.
--- Drops in reverse dependency order so re-running is safe.
+-- AgriFinance Postgres schema (Supabase).
+-- Run once before seed.ts. Drops in reverse dependency order so re-running is safe.
 
-SET FOREIGN_KEY_CHECKS = 0;
-
-DROP TABLE IF EXISTS activity_log;
-DROP TABLE IF EXISTS repayment_schedule;
-DROP TABLE IF EXISTS disbursement_schedule;
-DROP TABLE IF EXISTS loan_applications;
-DROP TABLE IF EXISTS loan_programs;
-DROP TABLE IF EXISTS application_form_fields;
-DROP TABLE IF EXISTS dashboard_snapshots;
-DROP TABLE IF EXISTS platform_users;
-DROP TABLE IF EXISTS farms;
-DROP TABLE IF EXISTS auth_users;
-DROP TABLE IF EXISTS cooperatives;
-DROP TABLE IF EXISTS banks;
-
-SET FOREIGN_KEY_CHECKS = 1;
+DROP TABLE IF EXISTS activity_log CASCADE;
+DROP TABLE IF EXISTS repayment_schedule CASCADE;
+DROP TABLE IF EXISTS disbursement_schedule CASCADE;
+DROP TABLE IF EXISTS loan_applications CASCADE;
+DROP TABLE IF EXISTS loan_programs CASCADE;
+DROP TABLE IF EXISTS application_form_fields CASCADE;
+DROP TABLE IF EXISTS dashboard_snapshots CASCADE;
+DROP TABLE IF EXISTS platform_users CASCADE;
+DROP TABLE IF EXISTS farms CASCADE;
+DROP TABLE IF EXISTS auth_users CASCADE;
+DROP TABLE IF EXISTS cooperatives CASCADE;
+DROP TABLE IF EXISTS banks CASCADE;
 
 CREATE TABLE banks (
   id                  VARCHAR(64)  PRIMARY KEY,
@@ -59,9 +54,8 @@ CREATE TABLE farms (
   province  VARCHAR(128),
   village   VARCHAR(128),
   address   VARCHAR(255),
-  size      DECIMAL(10,2),
-  owner_id  VARCHAR(64),
-  CONSTRAINT fk_farms_owner FOREIGN KEY (owner_id) REFERENCES auth_users(id) ON DELETE SET NULL
+  size      NUMERIC(10,2),
+  owner_id  VARCHAR(64) REFERENCES auth_users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE platform_users (
@@ -78,26 +72,24 @@ CREATE TABLE loan_programs (
   id                       VARCHAR(64)  PRIMARY KEY,
   title                    VARCHAR(255) NOT NULL,
   logo                     TEXT,
-  cooperative_id           VARCHAR(64),
-  bank_id                  VARCHAR(64),
+  cooperative_id           VARCHAR(64) REFERENCES cooperatives(id) ON DELETE SET NULL,
+  bank_id                  VARCHAR(64) REFERENCES banks(id)        ON DELETE SET NULL,
   status                   VARCHAR(32)  NOT NULL,
   currency                 VARCHAR(8),
-  loan_amount_min          DECIMAL(14,2),
-  loan_amount_max          DECIMAL(14,2),
+  loan_amount_min          NUMERIC(14,2),
+  loan_amount_max          NUMERIC(14,2),
   term_months              INT,
-  interest_rate            DECIMAL(6,3),
+  interest_rate            NUMERIC(6,3),
   type_of_financing        VARCHAR(128),
   grace_period_months      INT,
-  crops                    JSON,
+  crops                    JSONB,
   country                  VARCHAR(128),
-  regions                  JSON,
+  regions                  JSONB,
   description              TEXT,
   application_deadline     VARCHAR(32),
   payment_frequency        VARCHAR(64),
   conditions_requirements  TEXT,
-  application_process      JSON,
-  CONSTRAINT fk_lp_coop FOREIGN KEY (cooperative_id) REFERENCES cooperatives(id) ON DELETE SET NULL,
-  CONSTRAINT fk_lp_bank FOREIGN KEY (bank_id)        REFERENCES banks(id)        ON DELETE SET NULL
+  application_process      JSONB
 );
 
 CREATE TABLE loan_applications (
@@ -107,68 +99,63 @@ CREATE TABLE loan_applications (
   applicant_email        VARCHAR(255),
   applicant_phone        VARCHAR(64),
   applicant_national_id  VARCHAR(64),
-  loan_program_id        VARCHAR(64),
+  loan_program_id        VARCHAR(64) REFERENCES loan_programs(id) ON DELETE SET NULL,
   loan_program_title     VARCHAR(255),
   loan_program_logo      TEXT,
   bank_name              VARCHAR(255),
   bank_logo              TEXT,
-  amount                 DECIMAL(14,2),
+  amount                 NUMERIC(14,2),
   currency               VARCHAR(8),
   status                 VARCHAR(32) NOT NULL,
-  farm                   JSON,
-  farm_reports           JSON,
-  additional_questions   JSON,
-  documents              JSON,
-  loan_details           JSON,
-  CONSTRAINT fk_la_lp FOREIGN KEY (loan_program_id) REFERENCES loan_programs(id) ON DELETE SET NULL
+  farm                   JSONB,
+  farm_reports           JSONB,
+  additional_questions   JSONB,
+  documents              JSONB,
+  loan_details           JSONB
 );
 
 CREATE TABLE disbursement_schedule (
-  id              INT AUTO_INCREMENT PRIMARY KEY,
-  application_id  VARCHAR(64) NOT NULL,
+  id              SERIAL PRIMARY KEY,
+  application_id  VARCHAR(64) NOT NULL REFERENCES loan_applications(id) ON DELETE CASCADE,
   number          INT NOT NULL,
-  amount          DECIMAL(14,2),
+  amount          NUMERIC(14,2),
   date            VARCHAR(32),
   transaction_id  VARCHAR(64),
-  status          VARCHAR(32),
-  CONSTRAINT fk_ds_app FOREIGN KEY (application_id) REFERENCES loan_applications(id) ON DELETE CASCADE
+  status          VARCHAR(32)
 );
 
 CREATE TABLE repayment_schedule (
-  id              INT AUTO_INCREMENT PRIMARY KEY,
-  application_id  VARCHAR(64) NOT NULL,
+  id              SERIAL PRIMARY KEY,
+  application_id  VARCHAR(64) NOT NULL REFERENCES loan_applications(id) ON DELETE CASCADE,
   installment     INT NOT NULL,
   due_date        VARCHAR(32),
-  principal       DECIMAL(14,2),
-  interest        DECIMAL(14,2),
-  total           DECIMAL(14,2),
+  principal       NUMERIC(14,2),
+  interest        NUMERIC(14,2),
+  total           NUMERIC(14,2),
   transaction_id  VARCHAR(64),
-  status          VARCHAR(32),
-  CONSTRAINT fk_rs_app FOREIGN KEY (application_id) REFERENCES loan_applications(id) ON DELETE CASCADE
+  status          VARCHAR(32)
 );
 
 CREATE TABLE activity_log (
-  id              INT AUTO_INCREMENT PRIMARY KEY,
-  application_id  VARCHAR(64) NOT NULL,
-  user            VARCHAR(128),
+  id              SERIAL PRIMARY KEY,
+  application_id  VARCHAR(64) NOT NULL REFERENCES loan_applications(id) ON DELETE CASCADE,
+  "user"          VARCHAR(128),
   action          VARCHAR(255),
   date_time       VARCHAR(64),
-  ip_address      VARCHAR(64),
-  CONSTRAINT fk_al_app FOREIGN KEY (application_id) REFERENCES loan_applications(id) ON DELETE CASCADE
+  ip_address      VARCHAR(64)
 );
 
 CREATE TABLE application_form_fields (
   id          VARCHAR(64) PRIMARY KEY,
-  parent_id   VARCHAR(64),
+  parent_id   VARCHAR(64) REFERENCES application_form_fields(id) ON DELETE CASCADE,
   label       VARCHAR(255) NOT NULL,
   type        VARCHAR(32)  NOT NULL,
   mandatory   BOOLEAN NOT NULL DEFAULT FALSE,
-  subdata     JSON,
-  sort_order  INT NOT NULL DEFAULT 0,
-  CONSTRAINT fk_aff_parent FOREIGN KEY (parent_id) REFERENCES application_form_fields(id) ON DELETE CASCADE
+  subdata     JSONB,
+  sort_order  INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE dashboard_snapshots (
-  period  ENUM('month','quarter','year') PRIMARY KEY,
-  data    JSON NOT NULL
+  period  VARCHAR(16) PRIMARY KEY CHECK (period IN ('month','quarter','year')),
+  data    JSONB NOT NULL
 );

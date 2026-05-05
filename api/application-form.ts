@@ -1,5 +1,5 @@
-import { query } from './_lib/db'
-import { methods, withAuth } from './_lib/handler'
+import { query } from './_lib/db.js'
+import { methods, withAuth } from './_lib/handler.js'
 
 interface FieldRow {
   id: string

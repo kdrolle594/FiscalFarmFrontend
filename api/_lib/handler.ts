@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { verifyToken, type JwtUser } from './auth'
+import { verifyToken, type JwtUser } from './auth.js'
 
 export type Handler = (req: VercelRequest, res: VercelResponse) => Promise<void> | void
 export type AuthedHandler = (req: VercelRequest, res: VercelResponse, user: JwtUser) => Promise<void> | void
