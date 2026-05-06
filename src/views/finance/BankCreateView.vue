@@ -168,6 +168,7 @@ import PageHeader from '@/components/PageHeader.vue'
 import { useBanksStore } from '@/stores/banks'
 import { useAppStore } from '@/stores/app'
 import { useTranslation } from '@/composables/useTranslation'
+import { uploadImage } from '@/services/uploads'
 
 const router = useRouter()
 const banksStore = useBanksStore()
@@ -200,18 +201,19 @@ const rules = {
   phone: (v: string) => /^[0-9+() -]+$/.test(v) || 'Valid phone number required',
 }
 
-function handleLogoUpload(files: File | File[] | null) {
+async function handleLogoUpload(files: File | File[] | null) {
   const file = Array.isArray(files) ? files[0] : files
   if (!file) return
-  if (file.size > 64 * 1024) {
-    appStore.showSnackbar('Logo must be less than 64 KB', 'error')
+  if (file.size > 5 * 1024 * 1024) {
+    appStore.showSnackbar('Logo must be less than 5 MB', 'error')
     return
   }
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    form.logo = e.target?.result as string
+  try {
+    const { publicUrl } = await uploadImage(file, 'bank-logo')
+    form.logo = publicUrl
+  } catch (err) {
+    appStore.showSnackbar((err as Error).message || 'Upload failed', 'error')
   }
-  reader.readAsDataURL(file)
 }
 
 async function handleSave() {

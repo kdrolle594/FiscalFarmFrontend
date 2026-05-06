@@ -61,6 +61,7 @@ import { ref } from 'vue'
 import PageHeader from '@/components/PageHeader.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useTranslation } from '@/composables/useTranslation'
+import { uploadImage } from '@/services/uploads'
 
 const authStore = useAuthStore()
 const { t } = useTranslation()
@@ -71,20 +72,23 @@ function triggerFileInput() {
   fileInput.value?.click()
 }
 
-function handleFileChange(event: Event) {
+async function handleFileChange(event: Event) {
   const target = event.target as HTMLInputElement
   const file = target.files?.[0]
   if (!file) return
   avatarError.value = ''
-  if (file.size > 2 * 1024 * 1024) {
-    avatarError.value = 'File size must be less than 2 MB'
+  if (file.size > 5 * 1024 * 1024) {
+    avatarError.value = 'File size must be less than 5 MB'
     return
   }
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    authStore.updateAvatar(e.target?.result as string)
+  try {
+    const { publicUrl } = await uploadImage(file, 'avatar')
+    authStore.updateAvatar(publicUrl)
+  } catch (err) {
+    avatarError.value = (err as Error).message || 'Upload failed'
+  } finally {
+    target.value = ''
   }
-  reader.readAsDataURL(file)
 }
 </script>
 
